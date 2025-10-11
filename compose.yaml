@@ -1,0 +1,7 @@
+services:
+  app:
+    build: .
+    container_name: banking-sample-app
+    ports:
+      - "9090:8080"
+    restart: always
