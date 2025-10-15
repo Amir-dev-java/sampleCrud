@@ -48,6 +48,7 @@ public class AccountController {
     public ResponseEntity<AccountDto> createAccount(Principal principal,
                                                     @RequestBody @Valid CreateAccountRequest request) {
         UserEntity userEntity = userRepository
+
                 .findByUsername(principal.getName()).orElseThrow(IllegalArgumentException::new);
         AccountDto created = accountService.save(userEntity.getId(), request);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
